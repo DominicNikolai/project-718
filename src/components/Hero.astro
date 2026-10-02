@@ -1,30 +1,35 @@
 ---
 const BOX_SIDES = ['front', 'back', 'left', 'right', 'top', 'bottom'] as const;
 
-const baseFaces = BOX_SIDES.map((side) => `c-face base-${side}`);
-const lidFaces = BOX_SIDES.map((side) => `c-face lid-${side}`);
-const latchFaces = BOX_SIDES.map((side) => `latch-f latch-${side}`);
+const baseFaces = BOX_SIDES.map(side => `c-face base-${side}`);
+const lidFaces = BOX_SIDES.map(side => `c-face lid-${side}`);
+const latchFaces = BOX_SIDES.map(side => `latch-f latch-${side}`);
 ---
 
-<div class="mc-environment">
-  <div class="mc-chest-wrapper">
-    <input type="file" id="mc-file" class="mc-file-input" aria-label="Select file" />
+<div class='mc-environment'>
+  <div class='mc-chest-wrapper'>
+    <input
+      type='file'
+      id='mc-file'
+      class='mc-file-input'
+      aria-label='Select file'
+    />
 
-    <div class="mc-chest">
-      <div class="chest-part chest-base">
-        {baseFaces.map((className) => <div class={className}></div>)}
+    <div class='mc-chest'>
+      <div class='chest-part chest-base'>
+        {baseFaces.map(className => <div class={className} />)}
       </div>
 
-      <div class="chest-part chest-lid">
-        {lidFaces.map((className) => <div class={className}></div>)}
+      <div class='chest-part chest-lid'>
+        {lidFaces.map(className => <div class={className} />)}
 
-        <div class="mc-latch">
-          {latchFaces.map((className) => <div class={className}></div>)}
+        <div class='mc-latch'>
+          {latchFaces.map(className => <div class={className} />)}
         </div>
       </div>
     </div>
 
-    <div id="mc-text" class="mc-chest-text" aria-live="polite">SELECT FILE</div>
+    <div id='mc-text' class='mc-chest-text' aria-live='polite'>SELECT FILE</div>
   </div>
 </div>
 
@@ -196,17 +201,15 @@ const latchFaces = BOX_SIDES.map((side) => `latch-f latch-${side}`);
     .base-top,
     .lid-top,
     .latch-top {
-      transform:
-        translateY(calc((var(--box-d) - var(--box-h)) / 2)) rotateX(90deg)
-        translateZ(calc(var(--box-d) / 2));
+      transform: translateY(calc((var(--box-d) - var(--box-h)) / 2))
+        rotateX(90deg) translateZ(calc(var(--box-d) / 2));
     }
 
     .base-bottom,
     .lid-bottom,
     .latch-bottom {
-      transform:
-        translateY(calc((var(--box-h) - var(--box-d)) / 2)) rotateX(-90deg)
-        translateZ(calc(var(--box-d) / 2));
+      transform: translateY(calc((var(--box-h) - var(--box-d)) / 2))
+        rotateX(-90deg) translateZ(calc(var(--box-d) / 2));
     }
 
     .mc-latch {
